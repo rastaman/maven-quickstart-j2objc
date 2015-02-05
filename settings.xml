@@ -1,0 +1,13 @@
+<settings>
+  <profiles>
+    <profile>
+      <id>compiler</id>
+        <properties>
+          <J2OBJC_DISTRIBUTION>/Users/ArloLOK/Developer/j2objc/j2objc-0.9.6.1</J2OBJC_DISTRIBUTION>
+        </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>compiler</activeProfile>
+  </activeProfiles>
+</settings>
