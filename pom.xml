@@ -26,14 +26,34 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
+        <version>3.3</version>
         <configuration>
           <fork>true</fork>
+          <compilerId>j2objc</compilerId>
           <executable>${J2OBJC_DISTRIBUTION}/j2objc</executable>
+          <compilerArguments>
+<!-- 
+-use-arc                     Generate Objective-C code to support Automatic
+                               Reference Counting (ARC).
+-use-reference-counting      Generate Objective-C code to support iOS manual
+                               reference counting (default).
+-x <language>                Specify what language to output.  Possible values
+                               are objective-c (default) and objective-c++.
+ -->          	
+ 			<use-arc/>
+ 			<x>objective-c++</x>
+          </compilerArguments>
+          
         </configuration>
-      </plugin>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-compiler-j2objc</artifactId>
+            <version>2.6-SNAPSHOT</version>
+          </dependency>          
+        </dependencies>
+      </plugin>    
     </plugins>
   </build>
 
