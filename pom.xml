@@ -40,11 +40,11 @@
                                reference counting (default).
 -x <language>                Specify what language to output.  Possible values
                                are objective-c (default) and objective-c++.
+ 			<x>objective-c++</x>
  -->          	
  			<use-arc/>
- 			<x>objective-c++</x>
+ 			<sourcepath>src/main/java</sourcepath>
           </compilerArguments>
-          
         </configuration>
         <dependencies>
           <dependency>
