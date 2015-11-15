@@ -1,60 +1,56 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.test</groupId>
-  <artifactId>test</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>de.test</groupId>
+	<artifactId>test</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>test</name>
-  <url>http://maven.apache.org</url>
+	<name>test</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <fork>true</fork>
-          <compilerId>j2objc</compilerId>
-          <executable>${J2OBJC_DISTRIBUTION}/j2objc</executable>
-          <compilerArguments>
-<!-- 
--use-arc                     Generate Objective-C code to support Automatic
-                               Reference Counting (ARC).
--use-reference-counting      Generate Objective-C code to support iOS manual
-                               reference counting (default).
--x <language>                Specify what language to output.  Possible values
-                               are objective-c (default) and objective-c++.
- 			<x>objective-c++</x>
- -->          	
- 			<use-arc/>
- 			<sourcepath>src/main/java</sourcepath>
-          </compilerArguments>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-compiler-j2objc</artifactId>
-            <version>2.6-SNAPSHOT</version>
-          </dependency>          
-        </dependencies>
-      </plugin>    
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<fork>true</fork>
+					<compilerId>j2objc</compilerId>
+					<executable>${J2OBJC_DISTRIBUTION}/j2objc</executable>
+					<compilerArguments>
+						<!-- -use-arc Generate Objective-C code to support Automatic Reference 
+							Counting (ARC). -use-reference-counting Generate Objective-C code to support 
+							iOS manual reference counting (default). -x <language> Specify what language 
+							to output. Possible values are objective-c (default) and objective-c++. <x>objective-c++</x> -->
+						<use-arc />
+						<sourcepath>src/main/java</sourcepath>
+					</compilerArguments>
+					<generatedSourcesDirectory>src/main/java</generatedSourcesDirectory>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-compiler-j2objc</artifactId>
+						<version>2.7-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
